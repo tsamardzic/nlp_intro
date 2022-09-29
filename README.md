@@ -5,7 +5,7 @@ Tanja Samardžić, University of Geneva, Autmn 2022, Lecture notes
 
 
 - Computational Linguistics
-- Machine learning
+- Machine learning: [Simple examples](https://nbviewer.org/github/jsnajder/MachineLearningTutorial/blob/master/Machine%20Learning%20Tutorial.ipynb) 
 - Artificial Intelligence 
 
 <img src="figures/tasks.png" alt="tasks" width="600"/>
