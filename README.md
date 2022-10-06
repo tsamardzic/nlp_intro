@@ -90,7 +90,8 @@ Blogs and other learning resources:
    - semantic roles 
    - coreference 
 - Examples of parsing levels: [CoNLL-U format for Universal Dependencies](https://universaldependencies.org/format.html)
-- Text parsing previously considered to be input to end-user tasks, but it's roles is not so clear today
+- Text parsing previously considered to be input to end-user tasks, but its role is not so clear today.
+- The only level that is still performed is tokenisation, in fact, subword tokenisation
 
 
 &nbsp; 
@@ -203,7 +204,7 @@ Dates:
 
 **Submission deadline: 12.10 end of the day** 
 
-Upload to Moodle:
+Upload to Moodle (to be created):
 - your Python script (named `tp1.py`)
 - your weights as a text file, one number per line, named `weights_tp1.txt`    
 
