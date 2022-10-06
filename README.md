@@ -91,7 +91,7 @@ Blogs and other learning resources:
    - coreference 
 - Examples of parsing levels: [CoNLL-U format for Universal Dependencies](https://universaldependencies.org/format.html)
 - Text parsing previously considered to be input to end-user tasks, but its role is not so clear today.
-- The only level that is still performed is tokenisation, in fact, subword tokenisation
+- The only level that is still performed is tokenisation, in fact, [subword tokenisation](https://huggingface.co/docs/transformers/tokenizer_summary). 
 
 
 &nbsp; 
