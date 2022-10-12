@@ -204,6 +204,8 @@ Dates:
 
 **Submission deadline: 12.10 end of the day** 
 
+<span style="color:green"> **Submission on Moodle! Subscribe to TALN_2022 and you will find the task there.** </span>
+
 Upload to Moodle (to be created):
 - your Python script (named `tp1.py`)
 - your weights as a text file, one number per line, named `weights_tp1.txt`    
