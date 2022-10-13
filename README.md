@@ -90,8 +90,7 @@ Blogs and other learning resources:
    - semantic roles 
    - coreference 
 - Examples of parsing levels: [CoNLL-U format for Universal Dependencies](https://universaldependencies.org/format.html)
-- Text parsing previously considered to be input to end-user tasks, but its role is not so clear today.
-- The only level that is still performed is tokenisation, in fact, [subword tokenisation](https://huggingface.co/docs/transformers/tokenizer_summary). 
+- Text parsing previously considered to be input to end-user tasks, but it's roles is not so clear today
 
 
 &nbsp; 
@@ -120,6 +119,63 @@ Blogs and other learning resources:
 
 
 ## 3. Evaluation, data splits 
+
+&nbsp; 
+
+&nbsp; 
+
+<img src="figures/data_splits.png" alt="splits" width="700"/>
+
+
+&nbsp; 
+
+
+<img src="figures/sequence_eval.png" alt="sequence_eval" width="400"/>
+
+&nbsp; 
+
+
+### Three points where we measure the error
+
+1. On the **train** set -> **loss**, setting **model parameters (weights)**  
+2. On the **dev** set  -> no standard term, but can be thought as *interim performance*, setting **hyperparameters**
+3. On the **test** set -> **performance**, importantly, an **estimate** of the performance!
+
+&nbsp; 
+
+### Measures for loss
+
+1. Maximum likelihood -> minimising negative log likelihood  
+2. Cross-entropy  -> minimising conditional log likelihood
+
+
+&nbsp; 
+
+### Measures for performance estimation   
+
+
+- For labelled data sets:
+    1. Precision
+    2. Recall 
+    3. F-score 
+    4. Accuracy 
+
+
+
+
+- For sequences with a reference
+    1. Error rate in speech-to-text
+    2. BLEU in machine translation 
+    3. ROUGE in machine translation, text summarisation 
+
+
+- For sequences without a reference
+    1. Perplexity 
+
+### Overestimating the performance 
+
+- Test sets are typically too close to the train sets
+
 
 --------------
 
@@ -196,7 +252,7 @@ Dates:
 
 
 
-<span style="font-size:02em;"> **TPs** </span>
+<span style="font-size:02em;"> **TPs** 
 
 
 
@@ -204,11 +260,7 @@ Dates:
 
 **Submission deadline: 12.10 end of the day** 
 
-   
-|**Submission on Moodle! Subscribe to TALN_2022 and you will find the task there.**| 
- | ------ |  
-
-Upload to Moodle (to be created):
+Upload to Moodle:
 - your Python script (named `tp1.py`)
 - your weights as a text file, one number per line, named `weights_tp1.txt`    
 
