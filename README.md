@@ -105,7 +105,7 @@ Blogs and other learning resources:
     - question answering
     - summarisation 
     - translation
-- Famous benchmarks and data sets:
+- Famous NLU benchmarks and data sets:
     - [GLUE](https://gluebenchmark.com/tasks)
     - [SQuAD](https://rajpurkar.github.io/SQuAD-explorer/)
     - [SNLI](https://nlp.stanford.edu/projects/snli/)
@@ -120,12 +120,31 @@ Blogs and other learning resources:
 
 ## 3. Evaluation, data splits 
 
-&nbsp; 
+<div style="background-color:rgba(0, 0, 0, 0.0470588)">
 
 &nbsp; 
+Explanations and formulas: 
+- Eisenstein 2.4 (ignore Naive Bayes), 3.2.3, 4.4 (ignore significance), 4.5, 6.4.2
+- Jurafsky-Martin 4.7, 26.5, 
+&nbsp; 
+
+</div>
+
+&nbsp; 
+
+
+### Two main kinds of evaluation in NLP 
+
+&nbsp; 
+
+1. Label comparison in a confusion matrix - usual setting in machine learning in general 
 
 <img src="figures/data_splits.png" alt="splits" width="700"/>
 
+
+&nbsp; 
+
+2. Comparing sequences - more specific to NLP, more complicated 
 
 &nbsp; 
 
@@ -137,13 +156,15 @@ Blogs and other learning resources:
 
 ### Three points where we measure the error
 
-1. On the **train** set -> **loss**, setting **model parameters (weights)**  
-2. On the **dev** set  -> no standard term, but can be thought as *interim performance*, setting **hyperparameters**
+1. On the **train** set -> **loss**, training error for setting **model parameters (weights)**  
+2. On the **dev** set  -> no standard term, but can be thought as *interim performance*, sometimes called *validation*, error measured for setting **hyperparameters**, e.g. the weight of a component in a processing pipeline, learning rate for weight updating, training duration etc. 
 3. On the **test** set -> **performance**, importantly, an **estimate** of the performance!
+
+Only the last point is evaluation. 
 
 &nbsp; 
 
-### Measures for loss
+### Two most frequent measures for loss
 
 1. Maximum likelihood -> minimising negative log likelihood  
 2. Cross-entropy  -> minimising conditional log likelihood
@@ -154,27 +175,32 @@ Blogs and other learning resources:
 ### Measures for performance estimation   
 
 
-- For labelled data sets:
+- For comparing single labels (confusion matrix)
     1. Precision
     2. Recall 
     3. F-score 
     4. Accuracy 
 
 
+- For comparing sequences with a reference
+    1. Error rate in speech-to-text 
+    2. [BLEU](https://en.wikipedia.org/wiki/BLEU) in machine translation 
+    3. [ROUGE](https://en.wikipedia.org/wiki/ROUGE_(metric)) in machine translation, text summarisation 
 
 
-- For sequences with a reference
-    1. Error rate in speech-to-text
-    2. BLEU in machine translation 
-    3. ROUGE in machine translation, text summarisation 
-
-
-- For sequences without a reference
+- For sequences without a reference (language modelling)
     1. Perplexity 
 
-### Overestimating the performance 
+### The baseline 
 
-- Test sets are typically too close to the train sets
+When evaluating a NLP system, we want to know whether it performs **better than another system**. There is no point in reporting scores without a comparison. If no other system exists, then we compare our system to a simple solution, which does not involve learning. This simple solution is called the **baseline**. An example of such a simple solution is the *majority class baseline* -- putting all test items in a single class, the one that is most frequently seen in the training set. 
+
+
+### Common mistakes in evaluation  
+
+- "I get 78% accuracy - not bad!" >> not bad compared to what?!
+- "My system is not so good on the dev set, but it nails it on the test!" >> your system got lucky with the test set 
+- "I'm happy with the accuracy, but I don't like the F-score (so I'm not going to report it)" >> there is probably one frequent label that your system gets well, but not the others   
 
 
 --------------
@@ -186,28 +212,70 @@ Blogs and other learning resources:
 ## 4. Text encoding with Transformers NNs 
 
 
+<div style="background-color:rgba(0, 0, 0, 0.0470588)">
+
+&nbsp; 
+Explanations, formulas, visualisations: 
+-  Jay Alammar's blog: [The Illustrated Transformer](http://jalammar.github.io/illustrated-transformer/)
+-  Lena Voita's blog:[Sequence to Sequence (seq2seq) and Attention] (https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html)
+
+&nbsp; 
+
+</div>
+
+### Better, "dynamic" (sub)word vectors 
+
+- more information from the context 
+- more nuanced representation 
+
+
+### Generalised attention
+
+- comes from encoder-decoder RNNs 
+- generalised as self-attention 
+- increases parallel computation, while keeping the context 
+
+
+### Training with self-supervision 
+
+- masked language modelling as a training goal
+- comparing probability distributions as a loss function
+
+
+### Subword tokenization
+
+- Control over the size of the vocabulary
+- Dealing with unknown words
+
+
+### Implementation aspects
+
+- multihead attention 
+- positional encoding 
+- stacked FFNNs encoders 
+
+
+--------------
+
+
+
+&nbsp; 
+
+## 5. History of language modelling
+
 --------------
 
 
 &nbsp; 
 
-## 5. Performing tasks with pretrained models
+## 6. History of NN architectures: LSTMS, CNNs 
 
 --------------
 
 
 &nbsp; 
 
-
-## 6. History of language modelling
-
---------------
-
-
-&nbsp; 
-
-
-## 7. History of NN architectures: LSTMS, CNNs 
+## 7. Performing tasks with pretrained models
 
 --------------
 
@@ -239,7 +307,7 @@ Blogs and other learning resources:
 
 --------------
 
-Dates: 
+## Dates: 
 
 
 | 29.09 &nbsp;  | 06.10  &nbsp; | 13.10 &nbsp; | 20.10 &nbsp; | 27.10 &nbsp; | 03.11 &nbsp; | 10.11 &nbsp; | 17.11 &nbsp; | 24.11 &nbsp; | 01.12 &nbsp; | 08.12 &nbsp; | 15.12 &nbsp; | 22.12 &nbsp;  | 
@@ -248,83 +316,4 @@ Dates:
 
 
 ---
-
-
-
-
-<span style="font-size:02em;"> **TPs** 
-
-
-
-## 1. Classifying words with a perceptron 
-
-**Submission deadline: 12.10 end of the day** 
-
-Upload to Moodle:
-- your Python script (named `tp1.py`)
-- your weights as a text file, one number per line, named `weights_tp1.txt`    
-
-The goal of this exercise is to consolidate the basic notions of machine learning (input instance space, weight vector, weight updating, error, learning rate) by implementing a perceptron classifier. 
-
-
-
-We will classify a given set of words into two classes: those more associated with war and those more associated with peace. For this, we have provided the training data, which you can find in the file `tp_perceptron_input.txt`. As you will notice, B-words (= features) are proper names in this case and the T-words (objects of classification) are various nouns. All the words and the counts are extracted from the novel "War and Peace" by Leo Tolstoy.
-
-Your task is write a Python script that takes as input a co-occurrence matrix (feature matrix) and finds the optimal weights for a sigmoid perceptron-like classifier described in the materials above. To solve this task, you are allowed to copy parts of the code from the notebook, but you will need to find out yourself how to:
-
-- Initialise the weights (e.g. how many you need)
-- Calculate the output
-- Calculate the error
-- Update the weights as a function of the error (use the same formula as in the tutorial)
-- Define the stopping criterion
-
-**Note**: Please make sure that we can run your script from the command line. The input file should be passed as an argument from the command line too. 
-
-
-&nbsp; 
-
-
-### Background
-
-1. Jan Šnajder: [Machine learning basics](https://nbviewer.org/github/jsnajder/MachineLearningTutorial/blob/master/Machine%20Learning%20Tutorial.ipynb) 
-2. Luis Serrano: [Logistic regression and the perceptron algorithm](https://www.youtube.com/watch?v=jbluHIgBmBo&t=3s), video.
-3. Chrisfof Bless: [Perceptron - simple example](https://nbviewer.jupyter.org/github/Christof93/perceptron/blob/master/perceptron_algorithm.ipynb) 
-
----
-
-
-## 2. Language modelling
-
-
-&nbsp; 
-
-
-### Background
-
-
----
-
-## 3. Semantic similarity 
-
-&nbsp; 
-
-
-### Background
-
----
-
-
-## 4. ??? 
-
-&nbsp; 
-
-
-### Background
-
----
-
-
-
-
-
 
