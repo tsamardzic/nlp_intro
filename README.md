@@ -219,8 +219,8 @@ When evaluating a NLP system, we want to know whether it performs **better than 
 
 ### Better, contextual, "dynamic" (sub)word vectors 
 
-- more information from the context 
-- more nuanced representation 
+- We can extract more information from the context, more relevant context  
+- We basically represent sequences of symbols (subwords), not single words
 
 &nbsp; 
 
@@ -265,7 +265,7 @@ When evaluating a NLP system, we want to know whether it performs **better than 
 > Explanations, formulas, visualisations: 
 > - Lena Voita's blog: [Language Modelling](https://lena-voita.github.io/nlp_course/language_modeling.html)
 > - Eisenstein 6 (ignore details of NN architectures for now)
-> - Jurafsky-Martin, 
+> - Jurafsky-Martin [3](https://web.stanford.edu/~jurafsky/slp3/3.pdf) 
 
 
 &nbsp; 
