@@ -7,22 +7,21 @@ Tanja Samardžić, University of Geneva, Autmn 2022, Lecture notes
 
 &nbsp; 
 
-<div style="background-color:rgba(0, 0, 0, 0.0470588)">
 
-Online textbooks:
-- Dan Jurafsky and James H. Martin: [Speech and Language Processing (3rd ed. draft)](https://web.stanford.edu/~jurafsky/slp3/)
-- Jacob Eisenstein: [Natural Language Processing](https://github.com/jacobeisenstein/gt-nlp-class/blob/master/notes/eisenstein-nlp-notes.pdf)
-- Yoav Goldberg: [A Primer on Neural Network Models for Natural Language Processing](https://u.cs.biu.ac.il/~yogo/nnlp.pdf)
-- Tom Mitchell: [Machine Learning](https://www.cs.cmu.edu/afs/cs.cmu.edu/user/mitchell/ftp/mlbook.html) - an old classics
 
-Blogs and other learning resources:
-- Lena Voita's [NLP course](https://lena-voita.github.io/nlp_course.html#main_page_content)
-- Hugging Face [Course](https://huggingface.co/course/chapter1/1)
-- [Jay Alammar's blog](http://jalammar.github.io)
-- [Serrano Academy](https://serrano.academy) 
-- YouTube channel [3blue1brown](https://www.youtube.com/c/3blue1brown)
+> Online textbooks:
+> - Dan Jurafsky and James H. Martin: [Speech and Language Processing (3rd ed. draft)](https://web.stanford.edu/~jurafsky/slp3/)
+> - Jacob Eisenstein: [Natural Language Processing](https://github.com/jacobeisenstein/gt-nlp-class/blob/master/notes/eisenstein-nlp-notes.pdf)
+> - Yoav Goldberg: [A Primer on Neural Network Models for Natural Language Processing](https://u.cs.biu.ac.il/~yogo/nnlp.pdf)
+> - Tom Mitchell: [Machine Learning](https://www.cs.cmu.edu/afs/cs.cmu.edu/user/mitchell/ftp/mlbook.html) - an old classics
+> 
+> Blogs and other learning resources:
+> - Lena Voita's [NLP course](https://lena-voita.github.io/nlp_course.html#main_page_content)
+> - Hugging Face [Course](https://huggingface.co/course/chapter1/1)
+> - [Jay Alammar's blog](http://jalammar.github.io)
+> - [Serrano Academy](https://serrano.academy) 
+> - YouTube channel [3blue1brown](https://www.youtube.com/c/3blue1brown)
 
-</div>
 
 
 &nbsp; 
@@ -67,7 +66,7 @@ Blogs and other learning resources:
 
 ### Current pipeline
 
-<img src="figures/tasks.png" alt="tasks" width="600"/>
+<img src="figures/NLP_tasks.png" alt="tasks" width="600"/>
 
 
 ---
@@ -120,15 +119,11 @@ Blogs and other learning resources:
 
 ## 3. Evaluation, data splits 
 
-<div style="background-color:rgba(0, 0, 0, 0.0470588)">
 
-&nbsp; 
-Explanations and formulas: 
-- Eisenstein 2.4 (ignore Naive Bayes), 3.2.3, 4.4 (ignore significance), 4.5, 6.4.2
-- Jurafsky-Martin 4.7, 26.5, 
-&nbsp; 
+> Explanations and formulas: 
+> - Eisenstein 2.4 (ignore Naive Bayes), 3.2.3, 4.4 (ignore significance), 4.5, 6.4.2
+> - Jurafsky-Martin 4.7, 26.5 
 
-</div>
 
 &nbsp; 
 
@@ -191,10 +186,13 @@ Only the last point is evaluation.
 - For sequences without a reference (language modelling)
     1. Perplexity 
 
+&nbsp; 
+
 ### The baseline 
 
 When evaluating a NLP system, we want to know whether it performs **better than another system**. There is no point in reporting scores without a comparison. If no other system exists, then we compare our system to a simple solution, which does not involve learning. This simple solution is called the **baseline**. An example of such a simple solution is the *majority class baseline* -- putting all test items in a single class, the one that is most frequently seen in the training set. 
 
+&nbsp; 
 
 ### Common mistakes in evaluation  
 
@@ -212,22 +210,19 @@ When evaluating a NLP system, we want to know whether it performs **better than 
 ## 4. Text encoding with Transformers NNs 
 
 
-<div style="background-color:rgba(0, 0, 0, 0.0470588)">
-
-&nbsp; 
-Explanations, formulas, visualisations: 
--  Jay Alammar's blog: [The Illustrated Transformer](http://jalammar.github.io/illustrated-transformer/)
--  Lena Voita's blog:[Sequence to Sequence (seq2seq) and Attention] (https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html)
+> Explanations, formulas, visualisations: 
+> -  Jay Alammar's blog: [The Illustrated Transformer](http://jalammar.github.io/illustrated-transformer/)
+> -  Lena Voita's blog: [Sequence to Sequence (seq2seq) and Attention](https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html)
 
 &nbsp; 
 
-</div>
 
-### Better, "dynamic" (sub)word vectors 
+### Better, contextual, "dynamic" (sub)word vectors 
 
 - more information from the context 
 - more nuanced representation 
 
+&nbsp; 
 
 ### Generalised attention
 
@@ -235,18 +230,21 @@ Explanations, formulas, visualisations:
 - generalised as self-attention 
 - increases parallel computation, while keeping the context 
 
+&nbsp; 
 
 ### Training with self-supervision 
 
 - masked language modelling as a training goal
 - comparing probability distributions as a loss function
 
+&nbsp; 
 
 ### Subword tokenization
 
 - Control over the size of the vocabulary
 - Dealing with unknown words
 
+&nbsp; 
 
 ### Implementation aspects
 
@@ -263,12 +261,91 @@ Explanations, formulas, visualisations:
 
 ## 5. History of language modelling
 
---------------
+
+> Explanations, formulas, visualisations: 
+> - Lena Voita's blog: [Language Modelling](https://lena-voita.github.io/nlp_course/language_modeling.html)
+> - Eisenstein 6 (ignore details of NN architectures for now)
+> - Jurafsky-Martin, 
 
 
 &nbsp; 
 
-## 6. History of NN architectures: LSTMS, CNNs 
+### Language as a stochastic process 
+
+&nbsp; 
+
+<img src="figures/signal-noise.png" alt="signal-noise" width="700"/>
+
+
+
+
+
+
+<img src="figures/text_basics.jpg" alt="text_basics" width="600"/>
+
+
+- in the framework of information theory
+- view of text as a sequence of symbols generated by an encoder 
+- by modelling the sequence, we model the encoder 
+- initially only concerned with the form of the language
+
+&nbsp; 
+
+
+### Statistical or n-gram models
+
+- the focus on the form, sometimes called the "grammar" 
+- focus on the order (like time sequences)
+- first used in automatic speech recognition (ASR), then in statistical machine translation (SMT) 
+- assumptions of probability distributions
+- independence assumptions -> Markov models
+- the problem of zero counts -> smoothing
+
+
+&nbsp; 
+
+### Neural language models 
+
+- initially focus on the form
+- still focus on the order
+- self-supervised RNNs
+- later weights as a representation of meaning 
+
+&nbsp; 
+
+### Masked language modelling (MLM)
+
+- focus on the meaning in context
+- word2vec
+- BERT
+
+
+&nbsp; 
+
+### Large language models (LLMs)
+
+- general encoders 
+- all MLM
+- big debated regarding the knowledge representation in LLMs 
+
+&nbsp; 
+
+### Statistical vs. neural 
+
+- statistical still used in practice for ASR: fast and well understood 
+- neural models are used for other text generation tasks: machine translation, summarisation, robot-writers e
+
+
+
+--------------
+
+
+
+
+
+&nbsp; 
+
+## 6. History of NN architectures: LSTMs, CNNs 
 
 --------------
 
