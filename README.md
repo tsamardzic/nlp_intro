@@ -13,7 +13,7 @@ Tanja Samardžić, University of Geneva, Autmn 2022, Lecture notes
 > - Dan Jurafsky and James H. Martin: [Speech and Language Processing (3rd ed. draft)](https://web.stanford.edu/~jurafsky/slp3/)
 > - Jacob Eisenstein: [Natural Language Processing](https://github.com/jacobeisenstein/gt-nlp-class/blob/master/notes/eisenstein-nlp-notes.pdf)
 > - Yoav Goldberg: [A Primer on Neural Network Models for Natural Language Processing](https://u.cs.biu.ac.il/~yogo/nnlp.pdf)
-> - Tom Mitchell: [Machine Learning](https://www.cs.cmu.edu/afs/cs.cmu.edu/user/mitchell/ftp/mlbook.html) - an old classics
+> - Tom Mitchell: [Machine Learning](https://www.cs.cmu.edu/afs/cs.cmu.edu/user/mitchell/ftp/mlbook.html) - an old classic
 > 
 > Blogs and other learning resources:
 > - Lena Voita's [NLP course](https://lena-voita.github.io/nlp_course.html#main_page_content)
@@ -212,6 +212,7 @@ When evaluating a NLP system, we want to know whether it performs **better than 
 
 > Explanations, formulas, visualisations: 
 > -  Jay Alammar's blog: [The Illustrated Transformer](http://jalammar.github.io/illustrated-transformer/)
+> -  Jurafsky-Martin [9.7](https://web.stanford.edu/~jurafsky/slp3/9.pdf)
 > -  Lena Voita's blog: [Sequence to Sequence (seq2seq) and Attention](https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html)
 
 &nbsp; 
@@ -345,7 +346,59 @@ When evaluating a NLP system, we want to know whether it performs **better than 
 
 &nbsp; 
 
-## 6. History of NN architectures: LSTMs, CNNs 
+## 6. History of NN architectures: CNNs, LSTMs 
+
+
+> Explanations, formulas, visualisations: 
+> - Goldberg 9, 10, 11
+> - Eisenstein 3.4, 6 
+> - Jurafsky-Martin [9](https://web.stanford.edu/~jurafsky/slp3/9.pdf)
+> - Lena Voita's blog: [Text Classification](https://lena-voita.github.io/nlp_course/text_classification.html)
+
+&nbsp; 
+
+### CNNs as feature extractors 
+
+- designed to identify relevant input features
+- specifically in NLP: relevant segments of text are found with **1D** convolutions
+- **convolution** produces one vector representation for each n-gram
+- each filter is responsible for one cell in the vector, dimensionality of n-gram vector is the number of filters  
+- n-gram representations are then **pooled** into a single vector representing the whole text
+- this vector is input to a classifier 
+- n-gram size ≠ filter size!
+
+&nbsp; 
+
+### CNNs are mostly used for text classification
+
+- e.g. spam filtering, sentiment
+- a class is assigned to a whole text or a sentence
+- specific n-grams are clues for the class of the whole text 
+
+
+&nbsp; 
+
+### (bi-)LSTMs as encoders and decoders 
+
+- LSTMs are sophisticated RNNs 
+- RNNs are designed to process sequences, when the order of symbols is important 
+- remove the need for Markov models 
+- layers are states or units ordered in time steps 
+- RNN abstraction: current state = current input +  previous state 
+- by design uni-directional, in NLP mostly used as bi-directional: concatenation of the left-to-right and right-to-left pass
+- gating is invented to control how much history is allowed to pass to the next state
+- LSTM is a kind of gating: each state consists of a hidden and a memory component
+- input, forget, output   
+
+&nbsp; 
+
+### LSTMs are mostly used for generating sequences 
+
+- e.g. named entity recognition, PoS
+- because they can output a symbol at each state  
+- encoder-decoder versions can produce sequences of varied length 
+- to be used for classification, the last state is take as the representation of the whole sequence  
+
 
 --------------
 
