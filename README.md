@@ -397,7 +397,7 @@ When evaluating a NLP system, we want to know whether it performs **better than 
 - e.g. named entity recognition, PoS
 - because they can output a symbol at each state  
 - encoder-decoder versions can produce sequences of varied length 
-- to be used for classification, the last state is take as the representation of the whole sequence  
+- to be used for classification, the last state is taken as the representation of the whole sequence  
 
 
 --------------
@@ -405,7 +405,79 @@ When evaluating a NLP system, we want to know whether it performs **better than 
 
 &nbsp; 
 
-## 7. Performing tasks with pretrained models
+## 7. Performing tasks with pre-trained models
+
+> Explanations and visualisations: 
+> - Jurafsky-Martin [11](https://web.stanford.edu/~jurafsky/slp3/11.pdf)
+> - Lena Voita's blog: [Transfer Learning](https://lena-voita.github.io/nlp_course/transfer_learning.html#bert)
+> - Jay Alammar's blog: [A Visual Guide to Using BERT for the First Time](http://jalammar.github.io/a-visual-guide-to-using-bert-for-the-first-time/)
+
+
+&nbsp; 
+
+<img src="figures/NLP_tasks-2.png" alt="tasks" width="700"/>
+
+
+&nbsp; 
+
+### Before Large Language Models (LLMs) 
+
+- statistical models were pre-trained and shared, but strictly task-specific 
+- joint or multi-task learning learning: find the parameters that minimise two losses   
+- parameter sharing in neural networks: part of the network shared between two tasks (their loss combined used for wight updating)
+
+
+&nbsp; 
+
+### With LLMs
+
+- consequtive transfer: first pre-train a LLM, then the main model with LLM as input  
+- a LLM is trained on raw text with self-supervised learning  
+- the main model is trained on labelled data (most of the time) with supervised learning
+
+
+&nbsp; 
+
+### Options for how to used LLMs
+
+- Fine-tuning: pre-trained LLM + main model (e.g. classifier), all weights updated with the main model's loss 
+- Continued training: pre-trained LLM + main LM, all weigths updated with the main LM loss  
+- Zero-shot: only pre-trained LLM performing tha main task
+- Cross-lingial transfer: pre-trained multilingual LLM + fine-tuning or continued training or zero-shot on the target language, variant: pretrained monolingual LMM in one language + fine-tuning or continued training or zero-shot on the target language
+- Prompting: ask a model 
+
+
+&nbsp; 
+
+### LLMs model type
+
+- BERT: the encoder part of Tranformers
+- RoBERTa: more data 
+- ELECTRA: trained with a discriminative objective (instead of MLM)
+- XLNet: trained to reconstruct permuted input (instead of MLM)
+- DistilBERT: smaller
+- t5: full encoder-decoder trained on many tasks 
+- GPT
+- many others!
+
+&nbsp; 
+
+### LLMs source data and type
+
+- English (Wikipedia and BooksCorpus):  bert-base, cased and uncased
+- French: FlauBERT (BERT), CamemBERT (RoBERTa), variants
+- Bosnian, Croatian, Montengrin, Serbian: BERTić (ELECTRA) 
+- many, many more!
+
+
+&nbsp; 
+
+### Transfer across languages 
+
+- a pre-trained LLM can be multilingiual
+- popular examples mBERT, mT5, XLM-R -> mostly Wikipedia languages (around 100) 
+- often a group of languages, e.g. Indic BERT
+- trade-off between the size of the training data the closeness to the target language 
 
 --------------
 
