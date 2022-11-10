@@ -438,7 +438,7 @@ When evaluating a NLP system, we want to know whether it performs **better than 
 
 &nbsp; 
 
-### Options for how to used LLMs
+### Options for how to use LLMs
 
 - Fine-tuning: pre-trained LLM + main model (e.g. classifier), all weights updated with the main model's loss 
 - Continued training: pre-trained LLM + main LM, all weights updated with the main LM loss  
