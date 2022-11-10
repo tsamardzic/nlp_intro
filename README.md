@@ -431,7 +431,7 @@ When evaluating a NLP system, we want to know whether it performs **better than 
 
 ### With LLMs
 
-- consequtive transfer: first pre-train a LLM, then the main model with LLM as input  
+- consecutive transfer: first pre-train a LLM, then the main model with LLM as input  
 - a LLM is trained on raw text with self-supervised learning  
 - the main model is trained on labelled data (most of the time) with supervised learning
 
@@ -441,9 +441,9 @@ When evaluating a NLP system, we want to know whether it performs **better than 
 ### Options for how to used LLMs
 
 - Fine-tuning: pre-trained LLM + main model (e.g. classifier), all weights updated with the main model's loss 
-- Continued training: pre-trained LLM + main LM, all weigths updated with the main LM loss  
-- Zero-shot: only pre-trained LLM performing tha main task
-- Cross-lingial transfer: pre-trained multilingual LLM + fine-tuning or continued training or zero-shot on the target language, variant: pretrained monolingual LMM in one language + fine-tuning or continued training or zero-shot on the target language
+- Continued training: pre-trained LLM + main LM, all weights updated with the main LM loss  
+- Zero-shot: only pre-trained LLM performing the main task
+- Cross-lingual transfer: pre-trained multilingual LLM + fine-tuning or continued training or zero-shot on the target language, variant: pre-trained monolingual LMM in one language + fine-tuning or continued training or zero-shot on the target language
 - Prompting: ask a model 
 
 
@@ -451,7 +451,7 @@ When evaluating a NLP system, we want to know whether it performs **better than 
 
 ### LLMs model type
 
-- BERT: the encoder part of Tranformers
+- BERT: the encoder part of Transformers
 - RoBERTa: more data 
 - ELECTRA: trained with a discriminative objective (instead of MLM)
 - XLNet: trained to reconstruct permuted input (instead of MLM)
@@ -474,7 +474,7 @@ When evaluating a NLP system, we want to know whether it performs **better than 
 
 ### Transfer across languages 
 
-- a pre-trained LLM can be multilingiual
+- a pre-trained LLM can be multilingual
 - popular examples mBERT, mT5, XLM-R -> mostly Wikipedia languages (around 100) 
 - often a group of languages, e.g. Indic BERT
 - trade-off between the size of the training data the closeness to the target language 
