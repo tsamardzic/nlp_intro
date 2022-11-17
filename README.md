@@ -477,14 +477,64 @@ When evaluating a NLP system, we want to know whether it performs **better than 
 - a pre-trained LLM can be multilingual
 - popular examples mBERT, mT5, XLM-R -> mostly Wikipedia languages (around 100) 
 - often a group of languages, e.g. Indic BERT
-- trade-off between the size of the training data the closeness to the target language 
+- trade-off between the size of the training data and the closeness to the target language 
 
 --------------
 
 
 &nbsp; 
 
-## 8. Multimodal processing (vision, speech) 
+## 8. Multimodal processing (a high-level overview) 
+
+> Explanations and visualisations: 
+> - Jurafsky-Martin [26](https://web.stanford.edu/~jurafsky/slp3/26.pdf)
+> - Awni Hannun: [Sequence Modeling with CTC](https://distill.pub/2017/ctc/), online tutorial 
+> - Ray Smith: [An Overview of the Tessarct OCR Engine](https://github.com/tesseract-ocr/docs/blob/main/tesseracticdar2007.pdf)
+> - [ImageNet](https://www.image-net.org/about.php)
+
+
+&nbsp;
+
+
+
+
+&nbsp;
+
+### Relation to NLP and options
+
+- Not core NLP, but increasingly relevant
+- NLP research typically on post-processing, correcting recognition errors with language modelling 
+- Conversion of different data formats into text  <- much more developed 
+- Fusion of multimodal features  
+
+&nbsp;
+ 
+### Common steps
+
+- Feature extraction
+- Classification
+- Sequencing (language modelling)
+- Move from pipelines to end-to-end
+
+&nbsp; 
+
+### Speech 
+
+- ASR: automatic transcription, subtitling 
+- TTS (text-to-speech): vocal announcements, audio descriptions  
+- Features: properties of sound ways 
+- Labels: phonemes, IPA, more often [SAMPA](https://www.phon.ucl.ac.uk/home/sampa/index.html) 
+- Technology: Kaldi for pipeline, many end-to-end, e.g. [wav2vec](https://huggingface.co/docs/transformers/model_doc/wav2vec2)
+
+&nbsp; 
+
+### Image 
+
+- Optical Character Recognition (OCR): an old task, still very important in Digital Humanities 
+- ImageNet classification, based on [WordNet](https://wordnet.princeton.edu/)
+- Features: pixel analyses
+- Labels: typesetting prototypes 
+- Text to image: DALL-E 
 
 --------------
 
