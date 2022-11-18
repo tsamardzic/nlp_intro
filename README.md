@@ -524,7 +524,7 @@ When evaluating a NLP system, we want to know whether it performs **better than 
 - TTS (text-to-speech): vocal announcements, audio descriptions  
 - Features: properties of sound ways 
 - Labels: phonemes, IPA, more often [SAMPA](https://www.phon.ucl.ac.uk/home/sampa/index.html) 
-- Technology: Kaldi for pipeline, many end-to-end, e.g. [wav2vec](https://huggingface.co/docs/transformers/model_doc/wav2vec2)
+- Technology: [Kaldi](https://kaldi-asr.org) for pipeline, many end-to-end, e.g. [wav2vec](https://huggingface.co/docs/transformers/model_doc/wav2vec2)
 
 &nbsp; 
 
@@ -533,8 +533,8 @@ When evaluating a NLP system, we want to know whether it performs **better than 
 - Optical Character Recognition (OCR): an old task, still very important in Digital Humanities 
 - ImageNet classification, based on [WordNet](https://wordnet.princeton.edu/)
 - Features: pixel analyses
-- Labels: typesetting prototypes 
-- Text to image: DALL-E 
+- Labels: typesetting prototypes (for OCR), WordNet synsets (representing concepts) 
+- Text to image: DALL-E (a short explanation in this [Vox video](https://youtu.be/SVcsDDABEkM) suggested by Alexander)
 
 --------------
 
