@@ -21,6 +21,7 @@ Tanja Samardžić, University of Geneva, Autmn 2022, Lecture notes
 > - [Jay Alammar's blog](http://jalammar.github.io)
 > - [Serrano Academy](https://serrano.academy) 
 > - YouTube channel [3blue1brown](https://www.youtube.com/c/3blue1brown)
+> - YouTube channel [Crash Course Linguistics](https://youtube.com/playlist?list=PL8dPuuaLjXtP5mp25nStsuDzk2blncJDW)
 
 
 
@@ -423,7 +424,7 @@ When evaluating a NLP system, we want to know whether it performs **better than 
 ### Before Large Language Models (LLMs) 
 
 - statistical models were pre-trained and shared, but strictly task-specific 
-- joint or multi-task learning learning: find the parameters that minimise two losses   
+- joint or multi-task learning: find the parameters that minimise two losses, e.g. PoS and lemma   
 - parameter sharing in neural networks: part of the network shared between two tasks (their loss combined used for wight updating)
 
 
@@ -452,7 +453,7 @@ When evaluating a NLP system, we want to know whether it performs **better than 
 ### LLMs model type
 
 - BERT: the encoder part of Transformers
-- RoBERTa: more data 
+- RoBERTa: more data, varied samples 
 - ELECTRA: trained with a discriminative objective (instead of MLM)
 - XLNet: trained to reconstruct permuted input (instead of MLM)
 - DistilBERT: smaller
@@ -466,7 +467,7 @@ When evaluating a NLP system, we want to know whether it performs **better than 
 
 - English (Wikipedia and BooksCorpus):  bert-base, cased and uncased
 - French: FlauBERT (BERT), CamemBERT (RoBERTa), variants
-- Bosnian, Croatian, Montengrin, Serbian: BERTić (ELECTRA) 
+- Bosnian, Croatian, Montengrin, Serbian: BERTić (ELECTRA), trained on almost all the texts available online 
 - many, many more!
 
 
@@ -493,10 +494,6 @@ When evaluating a NLP system, we want to know whether it performs **better than 
 > - [ImageNet](https://www.image-net.org/about.php)
 
 
-&nbsp;
-
-
-
 
 &nbsp;
 
@@ -505,7 +502,7 @@ When evaluating a NLP system, we want to know whether it performs **better than 
 - Not core NLP, but increasingly relevant
 - NLP research typically on post-processing, correcting recognition errors with language modelling 
 - Conversion of different data formats into text  <- much more developed 
-- Fusion of multimodal features  
+- Fusion of multimodal features <- some attempts for some tasks, but not widely spread 
 
 &nbsp;
  
@@ -542,6 +539,70 @@ When evaluating a NLP system, we want to know whether it performs **better than 
 &nbsp; 
 
 ## 9. What is knowledge about language?
+
+Explanations and visualisations 
+> - Crash Course Linguistics [#1](https://youtu.be/3yLXNzDUH58), [#14](https://youtu.be/Nxyo83cQjhI), [#16](https://youtu.be/-sUUWyo4RZQ)
+> - Revisiting research training in linguistics: theory, logic, method, [Unit 01_01](https://tube.switch.ch/videos/516dcd9e), [Unit 01_02](https://tube.switch.ch/videos/83e51806), [Unit 01_03](https://tube.switch.ch/videos/27315c6e), [Unit 01_04](https://tube.switch.ch/videos/34e4ff9f), [Unit 02_01](https://tube.switch.ch/videos/7ddb6d52) 
+> - T. Samardžić blog: [Kinds of languages](https://github.com/tsamardzic/lsampling#part-2) 
+> - O. Pelloni, Language properties and parameters, PhD thesis, [Ch2](https://drive.switch.ch/index.php/s/wxrCjWq7BFvqhAl) 
+
+
+&nbsp; 
+
+### Grammar vs. linguistics 
+ 
+- Grammar is what we study in school: rules of a single language
+- Linguistics is about explaining why grammars are the way they are
+  - What is common to all grammars? 
+  - Why are some sequences of words ungrammatical? 
+
+&nbsp; 
+
+### Most important theoretical notions
+
+- Arbitrariness of the sign: we agree on what word to use for what meaning 
+- Double articulation (duality of patterning): merging meaningless units into meaningful ones, merging meaningful units into higher-order meaningful units 
+- Displacement: we can talk about things we don't see 
+- Innateness: are we born with a specialised language faculty or it's all just general cognition?  
+
+
+&nbsp; 
+
+### Most important terminology 
+
+- Phonetics describes physical properties of sounds (place of articulation, pitch, duration, intonation, etc.), phonology describes rules over abstract sound representations 
+- Morphology describes the rules of word formation (derivation, inflection) 
+- Syntax describes the rules of sentence formation (dependencies between words), can be constituency or dependency trees  
+- Semantics deals with meanings, can be lexical (meaning of words) or propositional (meaning of sentences) 
+- Pragmatics deals with meaning in context: how we understand non-explicit meanings 
+- Discourse analysis describes the rules of combining sentences into higher structures 
+- Sociolinguistics: linguistic differences between social groups (e.g. young vs. old speakers, men vs. women, degrees of education)  
+- Psycholinguistics, neurolinguistics: where is language located in the brain? what structures are harder for the brain to process? 
+- Language acquisition: how language develops in children 
+- Second language acquisition: how is a foreign language learnt    
+ 
+&nbsp; 
+
+### Linguistic diversity 
+
+- Genealogical comparison: language families
+- Feature-based comparison, e.g. [lang2vec](https://github.com/antonisa/lang2vec)
+- Text-based comparison
+   - Shannon entropy and complexity 
+   - Zipf-Mandelbrot Law 
+   - Fractal dimensionality (Mandelbrot)
+   - Menzerath-Altmann’s Law
+ 
+&nbsp; 
+
+### Linguistics vs. NLP
+
+- Symbolic rule-based methods relied a lot on grammars
+- Statistical methods used annotated texts, Penn Treebank was an example for many others, now Universal Dependencies 
+- Both rules and annotations are slightly formalised grammars, not scientific theory 
+- LLMs and self-supervised learning often work without any explicit linguistic knowledge 
+- Popular question: is there still any room for linguistics in NLP?
+
 
 --------------
 
