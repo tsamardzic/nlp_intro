@@ -536,8 +536,6 @@ When evaluating a NLP system, we want to know whether it performs **better than 
 --------------
 
 
-&nbsp; 
-
 ## 9. What is knowledge about language?
 
 Explanations and visualisations 
@@ -555,31 +553,50 @@ Explanations and visualisations
 - Linguistics is about explaining why grammars are the way they are
   - What is common to all grammars? 
   - Why are some sequences of words ungrammatical? 
+- Big gap between theory and grammar
+- Most of what is called "linguistics" is about grammars (not theoretical) 
 
 &nbsp; 
 
 ### Most important theoretical notions
 
-- Arbitrariness of the sign: we agree on what word to use for what meaning 
-- Double articulation (duality of patterning): merging meaningless units into meaningful ones, merging meaningful units into higher-order meaningful units 
+- Arbitrariness of the sign: there is no natural connection between a word and its meaning, 
+    - but the [Bouba/kiki effect](https://en.wikipedia.org/wiki/Bouba/kiki_effect) shows some connection 
+- Double articulation (duality of patterning): merging meaningless units into meaningful ones, merging meaningful units into higher-order meaningful units
+    - sometimes only the latter regarded as language
+    - relevant to the question of what are the smallest units of language  
 - Displacement: we can talk about things we don't see 
-- Innateness: are we born with a specialised language faculty or it's all just general cognition?  
+    - but it seems that we don't use this freedom all the time, a short video about that (by me): [What you see is what you say, or is it?](https://tube.switch.ch/videos/d72fe3cd)  
+    - relevant to the question what knowledge can be extracted from texts
+- Innateness: are we born with a specialised language faculty or it's all just general cognition? 
+    - a famous puzzle: [Poverty of the stimulus](https://en.wikipedia.org/wiki/Poverty_of_the_stimulus)
+    - distantly relevant to generalisation and universality of NLP models
 
 
 &nbsp; 
 
-### Most important terminology 
+### Most important terminology in linguistics and the corresponding NLP tasks
 
-- Phonetics describes physical properties of sounds (place of articulation, pitch, duration, intonation, etc.), phonology describes rules over abstract sound representations 
+- Phonetics describes physical properties of sounds (place of articulation, pitch, duration, intonation, etc.), phonology describes rules over abstract sound representations
+    - NLP task: ASR  
 - Morphology describes the rules of word formation (derivation, inflection) 
+    - NLP tasks: stemming, lemmatisation, subword tokenization 
 - Syntax describes the rules of sentence formation (dependencies between words), can be constituency or dependency trees  
+    - NLP task: parsing 
 - Semantics deals with meanings, can be lexical (meaning of words) or propositional (meaning of sentences) 
+    - NLP tasks: word sense disambiguation, semantic role labelling, co-reference resolution  
 - Pragmatics deals with meaning in context: how we understand non-explicit meanings 
+    - NLP task: intent classification 
 - Discourse analysis describes the rules of combining sentences into higher structures 
+    - NLP task: dialogue and interactive systems (chat bots), identifying discourse relations 
 - Sociolinguistics: linguistic differences between social groups (e.g. young vs. old speakers, men vs. women, degrees of education)  
+    - NLP task: computational sociolinguistics (classifying social media users)
 - Psycholinguistics, neurolinguistics: where is language located in the brain? what structures are harder for the brain to process? 
+    - NLP task: cognitive modelling (simulating human language processing) 
 - Language acquisition: how language develops in children 
-- Second language acquisition: how is a foreign language learnt    
+    - NLP task: cognitive modelling (simulating human language processing)
+- Second language acquisition: how is a foreign language learnt 
+    - no particular NLP task   
  
 &nbsp; 
 
@@ -590,7 +607,6 @@ Explanations and visualisations
 - Text-based comparison
    - Shannon entropy and complexity 
    - Zipf-Mandelbrot Law 
-   - Fractal dimensionality (Mandelbrot)
    - Menzerath-Altmann’s Law
  
 &nbsp; 
@@ -606,11 +622,100 @@ Explanations and visualisations
 
 --------------
 
+&nbsp; 
+
+## 10. Subword tokenization as a linguistic question in NLP 
+
+> Explanations and visualisations: 
+> - Jurafsky-Martin [2.3](https://web.stanford.edu/~jurafsky/slp3/2.pdf)
+> - Hugging Face [Tokenizers library](https://huggingface.co/course/chapter6/1?fw=pt)
+
+
+
 
 &nbsp; 
 
-## 10. What linguistic knowledge is contained in LLMs
+### Why is text segmentation not trivial?
 
+<img src="figures/input-types.png" alt="data types" width="370"/>
+
+Source: [Khan Academuy](https://www.khanacademy.org/computing/computers-and-internet/khan-academy-and-codeorg-binary-data)
+
+
+- Text is segmented into tokens (compared to frames in sound processing, pixels in image processing)
+- How should we split the text into tokens? 
+- Word as a token: too naive, overestimating the size of the vocabulary
+    - *fast* and *faster* equally distinct as *fast* and *water* 
+    - what is a word? 
+    - much less clear in languages other than English  
+
+&nbsp; 
+
+### The problem of out-of-vocabulary (OOV) words
+
+- Follows from Zipf's law: most of words are rare
+- Following from information theory: rare words are long
+- Subword tokenization as a solution: split words into smaller segments
+- New problem: How to split words? What should be subword units? 
+- Morphology in linguistics: words should not be analysed into morphemes; the structure of morphological paradigms   
+
+
+&nbsp; 
+
+### The trade-off between data (=text) size and vocabulary size 
+
+- Following from information theory: the shorter the symbol the more re-occurrence 
+- If there are regular patterns, they will re-occur more than expected from the general information theory
+- If symbols are short and re-occurring -> small vocabulary, more evidence for estimating probability, but data longer
+- If symbols are long -> big vocabulary, little evidence for estimating probability, but data shorter   
+- The goal of subword segmentation: find the optimal symbols minimising both sizes (data and vocabulary) 
+
+&nbsp;  
+
+### Compression algorithms  
+
+
+<a href="https://tube.switch.ch/videos/kk6E3wHDXv"><img src="figures/BPE_0-5.png" alt="BPE steps" width="320"/></a>
+
+
+- Byte-Pair Encoding (BPE)
+    - Starts with Unicode characters as symbols and pre-tokenization (word-level)
+    - Iterates over data, in each iteration creates one new symbol
+    - Each new symbol is introduced as a replacement for the most frequent bigram of symbols  
+- WordPiece
+    - Starts with Unicode characters as symbols and pre-tokenization (word-level)
+    - Iterates over data, in each iteration creates one new symbol
+    - Each new symbol is introduced as a replacement for the bigram of symbols with highest association score (similar to mutual information)     
+
+&nbsp; 
+
+### Probability models 
+
+
+<img src="figures/BPE_Morf.jpg" alt="data-represent" width="320"/>
+
+
+- Start with all possible splits in theory, in practice, from a sample of all possible splits
+- Eliminate symbols that contribute least to increasing the log probability of the data 
+- Morfessor 
+    - More popular in earlier work on morphological segmentation 
+    - Can be tuned to put more weight on minimising either vocabulary or data size 
+- Unigram model 
+    - Currently very popular 
+    - Vocabulary size an explicit hyper-parameter 
+
+ 
+&nbsp; 
+
+### Practical tips
+
+- BPE good for consistent, more regular data
+- Unigram better for noisy data
+- WordPiece merges more lexical items (roots) 
+- Vocabulary size often decided as a function of the data size, sometimes as a proportion of the word-level vocabulary 
+- BPE and Unigram implemented in the SentencePiece library 
+- WordPiece used for BERT 
+ 
 --------------
 
 
