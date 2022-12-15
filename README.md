@@ -643,7 +643,7 @@ Source: [Khan Academuy](https://www.khanacademy.org/computing/computers-and-inte
 
 
 - Text is segmented into tokens (compared to frames in sound processing, pixels in image processing)
-- How should we split the text into tokens? 
+- How should we split texts into tokens? 
 - Word as a token: too naive, overestimating the size of the vocabulary
     - *fast* and *faster* equally distinct as *fast* and *water* 
     - what is a word? 
@@ -685,7 +685,7 @@ Source: [Khan Academuy](https://www.khanacademy.org/computing/computers-and-inte
 - WordPiece
     - Starts with Unicode characters as symbols and pre-tokenization (word-level)
     - Iterates over data, in each iteration creates one new symbol
-    - Each new symbol is introduced as a replacement for the bigram of symbols with highest association score (similar to mutual information)     
+    - Each new symbol is introduced as a replacement for the bigram of symbols with the highest association score (similar to mutual information)     
 
 &nbsp; 
 
@@ -723,7 +723,85 @@ Source: [Khan Academuy](https://www.khanacademy.org/computing/computers-and-inte
 
 ## 11. Multilingual NLP 
 
+Explanations and visualisations 
+> - Sebastian Ruder's blog: [Why You Should Do NLP Beyond English](https://ruder.io/nlp-beyond-english/index.html)
+> - T. Samardžić blog: [Why language sampling](https://github.com/tsamardzic/lsampling#2-why-sampling) 
+> - Sebastian Ruder's blog: [The State of Multilingual AI](https://ruder.io/state-of-multilingual-ai/index.html)
+
+&nbsp; 
+
+### Reasons for studying multilingual NLP 
+
+- societal and economic: people like to interact with the technology in their native language/accent; more varieties covered, more users reached  
+- linguistic and machine learning: bigger challenges lead to better approaches, e.g. subword tokenisation  
+- cultural and normative: better representation of the real world knowledge
+- cognitive: learn interlingual abstractions  
+
+
+&nbsp; 
+
+### Multilingual data sets 
+
+- Universal Dependencies (UD) 106 languages, 20 families,  Bias towards Eurasia recognised but not intended
+- Bible 100, 103 languages, 30 families, Majority non-Indo-European  
+- mBERT, 97 languages, 15 families, Top 100 size of Wikipedia plus Thai and Mongolian
+- XTREME,  40 languages, 14 families,  Diversity 
+- XGLUE, 19 languages, 7 families 
+- XNLI, 15 languages, 7 families, Span families, include low resource languages
+- XCOPA,  11 languages, 11 families, Max diversity 
+- TyDiQA, 11 languages, 10 families, Typological diversity
+- XQuAD, 12 languages, 6 families, Extension to new languages
+
+
+&nbsp; 
+
+### Multilingual models
+
+- mBERT
+- XML-R
+- mt5
+- Bloom
+- ...
+&nbsp; 
+
+### Cross-lingual transfer
+
+&nbsp; 
+
+
+
+<img src="figures/transfer-workflow-finetune.png" alt="finetune" width="520"/>
+
+
+<img src="figures/transfer-workflow-continuepretrain.png" alt="continuepretrain" width="520"/>
+
+
+<img src="figures/transfer-workflow-test.png" alt="test" width="320"/>
+
+
+
+
+&nbsp; 
+
+### Language similarity and sampling
+
+&nbsp; 
+
+
+<img src="figures/transfer-mentions.png" alt="mentions" width="620"/>
+
+
+- Are languages included in data sets and models representative of all structural types?
+- How to get a representative sample? How to compare languages?
+- What are good transfer-target pairs? Why? 
+
 --------------
+
+&nbsp; 
+
+&nbsp; 
+
+
 
 ## Dates: 
 
