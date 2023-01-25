@@ -4,6 +4,7 @@ Tanja Samardžić, University of Geneva, Autmn 2022, Lecture notes
 # Introduction to NLP   
 # (Traitement automatique du langage naturel - TALN)  
 
+These notes should be used as a guide for acquiring the most important notions and terminology in contemporary  Natural Language Processing. Most of the notions mentioned in the notes are explained in the listed sources. A few visualisations are included in the notes for a better overview and intuitive understanding. This course includes a practical part too, which is managed on [Moodle](https://moodle.unige.ch/course/view.php?id=14314).
 
 &nbsp; 
 
@@ -123,7 +124,7 @@ Tanja Samardžić, University of Geneva, Autmn 2022, Lecture notes
 
 > Explanations and formulas: 
 > - Eisenstein 2.4 (ignore Naive Bayes), 3.2.3, 4.4 (ignore significance), 4.5, 6.4.2
-> - Jurafsky-Martin 4.7, 26.5 
+> - Jurafsky-Martin 4.7, 16.5 
 
 
 &nbsp; 
@@ -221,23 +222,25 @@ When evaluating a NLP system, we want to know whether it performs **better than 
 
 ### Better, contextual, "dynamic" (sub)word vectors 
 
-- We can extract more information from the context, more relevant context  
 - We basically represent sequences of symbols (subwords), not single words
+- The result of text encoding with Transformers is a representation for each subword segment in the given sentence. This is a dynamic representation because it depends on the sentence as opposed to "static" representations (e.g. word2vec).
+- With the self-attention mechanism, we can extract more information from the context, we can select more relevant contexts.  
+
 
 &nbsp; 
 
 ### Generalised attention
 
-- comes from encoder-decoder RNNs 
-- generalised as self-attention 
-- increases parallel computation, while keeping the context 
+- The notion of attention comes from encoder-decoder RNNs built for machine translation: it allows the decoder to select the most relevant encoder states when generating the output. 
+- Generalised as self-attention this mechanism allows to find the most relevant contexts for encoding the input. 
+- It helps increases parallel computation because the input sequence (e.g. a sentence) is broken down into many pairs of words; we can disregard the order of words. 
 
 &nbsp; 
 
 ### Training with self-supervision 
 
-- masked language modelling as a training goal
-- comparing probability distributions as a loss function
+- masked language modelling as a training goal (objective, task) 
+- cross-entropy (comparing probability distributions) as a loss function
 
 &nbsp; 
 
@@ -245,14 +248,15 @@ When evaluating a NLP system, we want to know whether it performs **better than 
 
 - Control over the size of the vocabulary
 - Dealing with unknown words
+- discussed in more detail in Lecture 10
 
 &nbsp; 
 
-### Implementation aspects
+### Implementation aspects, reasons for the large number of parameters
 
-- multihead attention 
-- positional encoding 
-- stacked FFNNs encoders 
+- multihead attention: need to repeat the attention mechanism several times, with varied parameter initialisations  
+- positional encoding: an additional function needed to make up for disregarding the order of words 
+- stacked FFNNs encoders: need to repeat the whole encoding process several times to achieve good results  
 
 
 --------------
@@ -317,9 +321,10 @@ When evaluating a NLP system, we want to know whether it performs **better than 
 
 ### Masked language modelling (MLM)
 
+- instead of predicting the next word, the model predict a set of randomly masked words <- word order is not explicitly modelled 
 - focus on the meaning in context
-- word2vec
-- BERT
+- word2vec: first step, static embeddings
+- BERT-like models: current technology behind LLMs, dynamic embeddings 
 
 
 &nbsp; 
@@ -327,15 +332,15 @@ When evaluating a NLP system, we want to know whether it performs **better than 
 ### Large language models (LLMs)
 
 - general encoders 
-- all MLM
-- big debated regarding the knowledge representation in LLMs 
+- all MLM (or a similar)
+- still open question to what degree they model human linguistic competence 
 
 &nbsp; 
 
 ### Statistical vs. neural 
 
 - statistical still used in practice for ASR: fast and well understood 
-- neural models are used for other text generation tasks: machine translation, summarisation, robot-writers e
+- neural models are used for other text generation tasks: machine translation, summarisation, robot-writers
 
 
 
@@ -441,25 +446,26 @@ When evaluating a NLP system, we want to know whether it performs **better than 
 
 ### Options for how to use LLMs
 
-- Fine-tuning: pre-trained LLM + main model (e.g. classifier), all weights updated with the main model's loss 
-- Continued training: pre-trained LLM + main LM, all weights updated with the main LM loss  
-- Zero-shot: only pre-trained LLM performing the main task
-- Cross-lingual transfer: pre-trained multilingual LLM + fine-tuning or continued training or zero-shot on the target language, variant: pre-trained monolingual LMM in one language + fine-tuning or continued training or zero-shot on the target language
-- Prompting: ask a model 
+- Fine-tuning: This term is typically used in cases where the learning objective (task) used for pre-training LLM is different from the objective (task) on which the main model is trained. For example, a typical task for pre-training LLMs is masked language modelling (MLM), while the main model is trained for text classification or sentiment analysis. All weights are updated with the main model's loss. 
+- Continued training: This term is used in cases where a pre-trained LLM is used to improve text representation on a new domain or a new language. In this case, the the learning objective is the same for the pre-trained LLM and the main LM (e.g. we use MLM in both cases), but pre-training and main training are done on different data sets. All weights are updated with the main model's loss.
+- One- and few-shot learning, also known as meta-learning: pre-trained LLM performs the main task without updating parameters. A pre-trained LLM learns to classify new examples relying on a similarity function. This terminology is very new, not yet summarised in a textbook. An overview of terms and references can be found in [Timo Schick's PhD thesis](https://edoc.ub.uni-muenchen.de/29867/1/Schick_Timo.pdf)
+- Zero-shot classification: unsupervised setting without updating LMMs parameters. 
 
 
 &nbsp; 
 
-### LLMs model type
+### LLMs model types
 
-- BERT: the encoder part of Transformers
-- RoBERTa: more data, varied samples 
-- ELECTRA: trained with a discriminative objective (instead of MLM)
-- XLNet: trained to reconstruct permuted input (instead of MLM)
-- DistilBERT: smaller
-- t5: full encoder-decoder trained on many tasks 
-- GPT
-- many others!
+- model architecture types:
+   - only the encoder part of Transformers  (e.g. BERT, RoBERTa)
+   - only the decoder part of Transformers (e.g. GPT)
+   - full encoder-decoder Transformers (e.g. t5)
+- training objective:
+  - masked language modelling (e.g. BERT, RoBERTa)
+  - discriminating between alternative fillings of slots (e.g. ELECTRA)
+  - reconstructing the input after permutations (e.g. XLNet)
+- model size
+  - several models are trained using fewer parameters (e.g. DistilBERT) 
 
 &nbsp; 
 
@@ -471,15 +477,6 @@ When evaluating a NLP system, we want to know whether it performs **better than 
 - many, many more!
 
 
-&nbsp; 
-
-### Transfer across languages 
-
-- a pre-trained LLM can be multilingual
-- popular examples mBERT, mT5, XLM-R -> mostly Wikipedia languages (around 100) 
-- often a group of languages, e.g. Indic BERT
-- trade-off between the size of the training data and the closeness to the target language 
-
 --------------
 
 
@@ -488,7 +485,7 @@ When evaluating a NLP system, we want to know whether it performs **better than 
 ## 8. Multimodal processing (a high-level overview) 
 
 > Explanations and visualisations: 
-> - Jurafsky-Martin [26](https://web.stanford.edu/~jurafsky/slp3/26.pdf)
+> - Jurafsky-Martin [16](https://web.stanford.edu/~jurafsky/slp3/16.pdf)
 > - Awni Hannun: [Sequence Modeling with CTC](https://distill.pub/2017/ctc/), online tutorial 
 > - Ray Smith: [An Overview of the Tessarct OCR Engine](https://github.com/tesseract-ocr/docs/blob/main/tesseracticdar2007.pdf)
 > - [ImageNet](https://www.image-net.org/about.php)
@@ -508,10 +505,12 @@ When evaluating a NLP system, we want to know whether it performs **better than 
  
 ### Common steps
 
-- Feature extraction
-- Classification
-- Sequencing (language modelling)
-- Move from pipelines to end-to-end
+- Feature extraction: all inputs are represented with features
+- Classification: finding the best label given the features
+- Sequencing (language modelling): scoring the sequence of labels 
+- Move from pipelines to end-to-end:
+  - pipeline: different tools for each step, often put together in a processing "recipe"
+  - end-to-end: one huge NN performs all the steps
 
 &nbsp; 
 
@@ -539,7 +538,7 @@ When evaluating a NLP system, we want to know whether it performs **better than 
 ## 9. What is knowledge about language?
 
 Explanations and visualisations 
-> - Crash Course Linguistics [#1](https://youtu.be/3yLXNzDUH58), [#14](https://youtu.be/Nxyo83cQjhI), [#16](https://youtu.be/-sUUWyo4RZQ)
+> - Crash Course Linguistics [#1](https://youtu.be/3yLXNzDUH58), [#14](https://youtu.be/Nxyo83cQjhI) 
 > - Revisiting research training in linguistics: theory, logic, method, [Unit 01_01](https://tube.switch.ch/videos/516dcd9e), [Unit 01_02](https://tube.switch.ch/videos/83e51806), [Unit 01_03](https://tube.switch.ch/videos/27315c6e), [Unit 01_04](https://tube.switch.ch/videos/34e4ff9f), [Unit 02_01](https://tube.switch.ch/videos/7ddb6d52) 
 > - T. Samardžić blog: [Kinds of languages](https://github.com/tsamardzic/lsampling#part-2) 
 > - O. Pelloni, Language properties and parameters, PhD thesis, [Ch2](https://drive.switch.ch/index.php/s/wxrCjWq7BFvqhAl) 
@@ -629,7 +628,7 @@ Explanations and visualisations
 > Explanations and visualisations: 
 > - Jurafsky-Martin [2.3](https://web.stanford.edu/~jurafsky/slp3/2.pdf)
 > - Hugging Face [Tokenizers library](https://huggingface.co/course/chapter6/1?fw=pt)
-
+> - Morfessor short [Background](http://morpho.aalto.fi/projects/morpho/problem.html) and [Methods](http://morpho.aalto.fi/projects/morpho/methods.html)  
 
 
 
@@ -727,6 +726,7 @@ Explanations and visualisations
 > - Sebastian Ruder's blog: [Why You Should Do NLP Beyond English](https://ruder.io/nlp-beyond-english/index.html)
 > - T. Samardžić blog: [Why language sampling](https://github.com/tsamardzic/lsampling#2-why-sampling) 
 > - Sebastian Ruder's blog: [The State of Multilingual AI](https://ruder.io/state-of-multilingual-ai/index.html)
+> - Crash Course Linguistics [#16](https://youtu.be/-sUUWyo4RZQ)
 
 &nbsp; 
 
@@ -736,6 +736,7 @@ Explanations and visualisations
 - linguistic and machine learning: bigger challenges lead to better approaches, e.g. subword tokenisation  
 - cultural and normative: better representation of the real world knowledge
 - cognitive: learn interlingual abstractions  
+
 
 
 &nbsp; 
@@ -755,16 +756,13 @@ Explanations and visualisations
 
 &nbsp; 
 
-### Multilingual models
+### Transfer across languages 
 
-- mBERT
-- XML-R
-- mt5
-- Bloom
-- ...
-&nbsp; 
+- a pre-trained LLM can be multilingual
+- popular examples mBERT, mT5, XLM-R, Bloom -> mostly Wikipedia languages (around 100) 
+- often a group of languages, e.g. Indic BERT
+- trade-off between the size of the training data and the closeness to the target language ### Multilingual models
 
-### Cross-lingual transfer
 
 &nbsp; 
 
@@ -779,7 +777,7 @@ Explanations and visualisations
 <img src="figures/transfer-workflow-test.png" alt="test" width="320"/>
 
 
-
+ 
 
 &nbsp; 
 
@@ -812,4 +810,5 @@ Explanations and visualisations
 
 
 ---
+
 
