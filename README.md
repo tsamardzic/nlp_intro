@@ -1,4 +1,4 @@
-Tanja Samardžić, University of Geneva, Autmn 2022, Lecture notes
+Tanja Samardžić, University of Geneva, Lecture notes, Autumn 2023
 
 
 # Introduction to NLP   
@@ -23,6 +23,9 @@ These notes should be used as a guide for acquiring the most important notions a
 > - YouTube channel [Crash Course Linguistics](https://youtube.com/playlist?list=PL8dPuuaLjXtP5mp25nStsuDzk2blncJDW)
 
 
+[History](https://tsamardzic.github.io/nlp_intro/1.html)
+
+
 
 &nbsp; 
 
@@ -30,6 +33,9 @@ These notes should be used as a guide for acquiring the most important notions a
 
 
 <span style="font-size:02em;"> **LECTURES** 
+
+
+
 
 
 ## 1. History of NLP, interdisciplinarity, current pipeline
