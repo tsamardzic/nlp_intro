@@ -8,7 +8,7 @@ These notes should be used as a guide for acquiring the most important notions a
 
 &nbsp; 
 
-(child-page-test)[https://tsamardzic.github.io/nlp_intro/1]
+(child-page-test)[https://tsamardzic.github.io/nlp_intro/1/]
 
 > Online textbooks:
 > - Dan Jurafsky and James H. Martin: [Speech and Language Processing (3rd ed. draft)](https://web.stanford.edu/~jurafsky/slp3/)
