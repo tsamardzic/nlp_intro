@@ -27,7 +27,7 @@ These notes should be used as a guide for acquiring the most important notions a
 
 #### 1. [Large language models (LLMs), Artificial Intelligence (AI) and Natural language processing (NLP), history of NLP](https://tsamardzic.github.io/nlp_intro/1.html) 
 
-#### 2. NLP tasks, data sets, benchmarks
+#### 2. [NLP tasks, data sets, benchmarks]((https://tsamardzic.github.io/nlp_intro/2.html))
 
 #### 3. Evaluation, data splits
 
