@@ -27,9 +27,9 @@ These notes should be used as a guide for acquiring the most important notions a
 
 #### 1. [Large language models (LLMs), Artificial Intelligence (AI) and Natural language processing (NLP), history of NLP](https://tsamardzic.github.io/nlp_intro/1.html) 
 
-#### 2. [NLP tasks, data sets, benchmarks]((https://tsamardzic.github.io/nlp_intro/2.html))
+#### 2. [NLP tasks, data sets, benchmarks](https://tsamardzic.github.io/nlp_intro/2.html)
 
-#### 3. Evaluation, data splits
+#### 3. [Evaluation, data splits](https://tsamardzic.github.io/nlp_intro/3.html)
 
 #### 4. Representing the meaning of words with word2vec
 
@@ -58,9 +58,10 @@ These notes should be used as a guide for acquiring the most important notions a
 ## Dates 2023 
 
 
-| 21.09 &nbsp;  | 28.10  &nbsp; | 05.10 &nbsp; | 12.10 &nbsp; | 19.10 &nbsp; | 26.10 &nbsp; | 02.11 &nbsp; | 09.11 &nbsp; | 16.11 &nbsp; | 23.11 &nbsp; | 30.11 &nbsp; | 07.12 &nbsp; | 14.12 &nbsp;  | 21.12 &nbsp;  | 
+| 21.09 &nbsp;  | 28.09  &nbsp; | 05.10 &nbsp; | 12.10 &nbsp; | 19.10 &nbsp; | 26.10 &nbsp; | 02.11 &nbsp; | 09.11 &nbsp; | 16.11 &nbsp; | 23.11 &nbsp; | 30.11 &nbsp; | 07.12 &nbsp; | 14.12 &nbsp;  | 21.12 &nbsp;  | 
 | ---- | ---- |  ---- |  ---- |  ---- |  ---- |  ---- |  ---- | ---- |  ---- |  ---- |  ---- | ---- | ---- |
 | 1     | 2     |       3  | 4  | 5     |    6  |    7  |    8  |     9 |   10  | 11  |     | 12   |    | 
+|      |    |         |   |      |    TP1  |      |      |     TP2 |     |   |  TP3   |    | TP4   | 
 
 
 ---
