@@ -33,7 +33,7 @@ These notes should be used as a guide for acquiring the most important notions a
 
 #### 4. [Representing the meaning of words with word2vec](https://tsamardzic.github.io/nlp_intro/4.html)
 
-#### 5. History of language modelling
+#### 5. [History of language modelling](https://tsamardzic.github.io/nlp_intro/5.html)
 
 #### 6. Language modelling with Transformers NNs
 
