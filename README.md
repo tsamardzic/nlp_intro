@@ -35,7 +35,7 @@ These notes should be used as a guide for acquiring the most important notions a
 
 #### 5. [History of language modelling](https://tsamardzic.github.io/nlp_intro/5.html)
 
-#### 6. Language modelling with Transformers NNs
+#### 6. [Language modelling with Transformers NNs](https://tsamardzic.github.io/nlp_intro/6.html)
 
 #### 7. Attention in language modelling
 
