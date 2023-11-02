@@ -37,7 +37,7 @@ These notes should be used as a guide for acquiring the most important notions a
 
 #### 6. [Language modelling with Transformers NNs](https://tsamardzic.github.io/nlp_intro/6.html)
 
-#### 7. Attention in language modelling(https://tsamardzic.github.io/nlp_intro/7.html)
+#### 7. [Attention in language modelling](https://tsamardzic.github.io/nlp_intro/7.html)
 
 #### 8. Subword tokenization
 
