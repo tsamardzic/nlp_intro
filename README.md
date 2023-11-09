@@ -39,7 +39,7 @@ These notes should be used as a guide for acquiring the most important notions a
 
 #### 7. [Attention in language modelling](https://tsamardzic.github.io/nlp_intro/7.html)
 
-#### 8. Subword tokenization
+#### 8. [Subword tokenization](https://tsamardzic.github.io/nlp_intro/7.html)
 
 #### 9. Performing tasks with pre-trained models (transfer learning)
 
