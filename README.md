@@ -41,7 +41,7 @@ These notes should be used as a guide for acquiring the most important notions a
 
 #### 8. [Subword tokenization](https://tsamardzic.github.io/nlp_intro/8.html)
 
-#### 9. Performing tasks with pre-trained models (transfer learning)
+#### 9. [Transfer learning: performing tasks with pre-trained models](https://tsamardzic.github.io/nlp_intro/9.html)
 
 #### 10. Cross-lingual transfer and multilingual NLP
 
