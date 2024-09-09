@@ -1,4 +1,4 @@
-Tanja Samardžić, University of Geneva, Lecture notes, Autumn 2023
+Tanja Samardžić, University of Geneva, Lecture notes, Autumn 2024
 
 
 # Introduction to NLP   
@@ -43,7 +43,7 @@ These notes should be used as a guide for acquiring the most important notions a
 
 #### 9. [Transfer learning: performing tasks with pre-trained models](https://tsamardzic.github.io/nlp_intro/9.html)
 
-#### 10. [Cross-lingual transfer and multilingual NLPs](https://tsamardzic.github.io/nlp_intro/10.html)
+#### 10. [Cross-lingual transfer and multilingual NLP](https://tsamardzic.github.io/nlp_intro/10.html)
 
 #### 11. [History of NN architectures in NLP: CNNs, LSTMs](https://tsamardzic.github.io/nlp_intro/11.html)
 
@@ -54,16 +54,5 @@ These notes should be used as a guide for acquiring the most important notions a
 
 &nbsp; 
 
-
-## Dates 2023/2024 
-
-
-| 21.09 &nbsp;  | 28.09  &nbsp; | 05.10 &nbsp; | 12.10 &nbsp; | 19.10 &nbsp; | 26.10 &nbsp; | 02.11 &nbsp; | 09.11 &nbsp; | 16.11 &nbsp; | 23.11 &nbsp; | 30.11 &nbsp; | 07.12 &nbsp; | 14.12 &nbsp;  | 21.12 &nbsp;  | 11.01.2024 &nbsp;  | 
-| ---- | ---- |  ---- |  ---- |  ---- |  ---- |  ---- |  ---- | ---- |  ---- |  ---- |  ---- | ---- | ---- | ---- |
-| 1     | 2     |       3  | 4  | 5     |    6  |    7  |    8  |     9 |   10  | 11  |     |  11  |  12  |   | 
-|      |    |         |   |      |    TP1  |      |      |     TP2 |     |   |     |  TP3  |    |  TP4  | 
-
-
----
 
 
