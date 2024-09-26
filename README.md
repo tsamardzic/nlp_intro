@@ -15,6 +15,9 @@ These notes should be used as a guide for acquiring the most important notions a
 > - Tom Mitchell: [Machine Learning](https://www.cs.cmu.edu/afs/cs.cmu.edu/user/mitchell/ftp/mlbook.html) - an old classic
 > 
 > Blogs and other learning resources:
+> - Graham Neubig, YouTube channel [CMU Advanced NLP](https://www.youtube.com/@neubig/playlists) 
+> - Benoît Sagot, [Apprendre les langues aux machines](https://www.college-de-france.fr/fr/agenda/lecture/apprendre-les-langues-aux-machines), cours du Collège de France
+> - YouTube channel [Crash Course Linguistics](https://youtube.com/playlist?list=PL8dPuuaLjXtP5mp25nStsuDzk2blncJDW)
 > - Lena Voita's [NLP course](https://lena-voita.github.io/nlp_course.html#main_page_content)
 > - Hugging Face [Course](https://huggingface.co/course/chapter1/1)
 > - [Jay Alammar's blog](http://jalammar.github.io)
