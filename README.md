@@ -28,15 +28,18 @@ These notes should be used as a guide for acquiring the most important notions a
 ## Topics
 
 
-#### 1. [Large language models (LLMs), Artificial Intelligence (AI) and Natural language processing (NLP), history of NLP](https://tsamardzic.github.io/nlp_intro/1.html) 
 
-#### 2. [NLP tasks, data sets, benchmarks](https://tsamardzic.github.io/nlp_intro/2.html)
+
+#### 1. [NLP tasks, data sets, benchmarks](https://tsamardzic.github.io/nlp_intro/1.html)
+
+#### 2. [Large language models (LLMs), Artificial Intelligence (AI) and Natural language processing (NLP), history of NLP](https://tsamardzic.github.io/nlp_intro/2.html) 
 
 #### 3. [Evaluation, data splits](https://tsamardzic.github.io/nlp_intro/3.html)
 
-#### 4. [Representing the meaning of words with word2vec](https://tsamardzic.github.io/nlp_intro/4.html)
+#### 4. [History of language modelling](https://tsamardzic.github.io/nlp_intro/4.html)
 
-#### 5. [History of language modelling](https://tsamardzic.github.io/nlp_intro/5.html)
+#### 5. [Representing the meaning of words with word2vec](https://tsamardzic.github.io/nlp_intro/5.html)
+
 
 #### 6. [Language modelling with Transformers NNs](https://tsamardzic.github.io/nlp_intro/6.html)
 
