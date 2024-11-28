@@ -51,11 +51,11 @@ These notes should be used as a guide for acquiring the most important notions a
 
 #### 10. [Transfer learning: performing tasks with decoder-type pre-trained models](https://tsamardzic.github.io/nlp_intro/10.html)
 
-#### 11. [Cross-lingual transfer and multilingual NLP](https://tsamardzic.github.io/nlp_intro/10.html)
+#### 11. [Cross-lingual transfer and multilingual NLP](https://tsamardzic.github.io/nlp_intro/11.html)
 
-#### 12. [History of NN architectures in NLP: CNNs, LSTMs](https://tsamardzic.github.io/nlp_intro/11.html)
+#### 12. [History of NN architectures in NLP: CNNs, LSTMs](https://tsamardzic.github.io/nlp_intro/12.html)
 
-#### 13. [What is knowledge about language?](https://tsamardzic.github.io/nlp_intro/12.html)
+#### 13. [What is knowledge about language?](https://tsamardzic.github.io/nlp_intro/13.html)
 
 
 &nbsp; 
