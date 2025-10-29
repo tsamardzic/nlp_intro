@@ -4,7 +4,7 @@ Tanja Samardžić, University of Geneva, Lecture notes, Autumn 2024
 # Introduction to NLP   
 # (Traitement automatique du langage naturel - TALN)  
 
-These notes should be used as a guide for acquiring the most important notions and terminology in contemporary  Natural Language Processing. Most of the notions mentioned in the notes are explained in the listed sources. A few visualisations are included in the notes for a better overview and intuitive understanding. This course includes a practical part too, which is managed on [Moodle](https://moodle.unige.ch/course/view.php?id=16144).
+These notes should be used as a guide for acquiring the most important notions and terminology in contemporary  Natural Language Processing. Most of the notions mentioned in the notes are explained in the listed sources. A few visualisations are included in the notes for a better overview and intuitive understanding. This course includes a practical part too, which is managed on [Moodle](https://moodle.unige.ch/enrol/index.php?id=20058).
 
 &nbsp; 
 
