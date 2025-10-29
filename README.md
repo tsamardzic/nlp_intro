@@ -1,4 +1,4 @@
-Tanja Samardžić, University of Geneva, Lecture notes, Autumn 2024
+Tanja Samardžić, University of Geneva, Lecture notes, Autumn 2025
 
 
 # Introduction to NLP   
