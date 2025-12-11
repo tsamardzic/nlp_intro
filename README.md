@@ -56,8 +56,9 @@ These notes should be used as a guide for acquiring the most important notions a
 
 #### 12. [History of NN architectures in NLP: CNNs, LSTMs](https://tsamardzic.github.io/nlp_intro/12.html)
 
-#### 13. [What is knowledge about language?](https://tsamardzic.github.io/nlp_intro/13.html)
+#### 13. [Human linguistic competence vs. large language models](https://tsamardzic.github.io/nlp_intro/13.html)
 
+#### 14. [Reasoning in humans and in large language models](https://tsamardzic.github.io/nlp_intro/14.html) 
 
 &nbsp; 
 
